@@ -1,0 +1,19 @@
+.header {
+	height: 50px;
+	width: 1200px;
+	background-color: black;
+	color: white;
+	vertical-align: middle;
+	display: table-cell;
+	padding-left: $gridPadding;
+	padding-right: $gridPadding;
+
+	a {
+		margin-right: 15px;
+
+		&.last {
+			margin-right: 0;
+		}
+	}
+}
+

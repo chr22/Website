@@ -1,0 +1,117 @@
+@import 'fonts';
+@import 'variables';
+
+body {
+	font-family: Roboto, sans-serif;
+	margin: 0;
+	background-color: $backgroundColor;
+	color: $textColor;
+}
+
+.body {
+	padding: 20px 0px 20px 20px;
+	background-color: white;
+}
+
+.content {
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.container {
+    width: 1200px !important;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.clearfix {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+.transition {
+    $transitionTime: 500ms;
+	-webkit-transition: all $transitionTime ease;
+	-moz-transition: all $transitionTime ease;
+	-ms-transition: all $transitionTime ease;
+	-o-transition: all $transitionTime ease;
+	transition: all $transitionTime ease;
+}
+
+.fast-transition {
+    $transitionTime: 200ms;
+	-webkit-transition: all $transitionTime ease;
+	-moz-transition: all $transitionTime ease;
+	-ms-transition: all $transitionTime ease;
+	-o-transition: all $transitionTime ease;
+	transition: all $transitionTime ease;
+}
+
+.long-transition {
+    $transitionTime: 1000ms;
+	-webkit-transition: all $transitionTime ease;
+	-moz-transition: all $transitionTime ease;
+	-ms-transition: all $transitionTime ease;
+	-o-transition: all $transitionTime ease;
+	transition: all $transitionTime ease;
+}
+
+.no-transition {
+    $transitionTime: 1000ms;
+	-webkit-transition: none;
+	-moz-transition: none;
+	-ms-transition: none;
+	-o-transition: none;
+	transition: none;
+}
+
+.spin {
+	-webkit-animation: spin 2s infinite linear;
+	-moz-animation: spin 2s infinite linear;
+	-o-animation: spin 2s infinite linear;
+	animation: spin 2s infinite linear;
+}
+
+.snug-fit-cell {
+	width:1%;
+    white-space:nowrap;
+}
+
+.vertical-middel-align {
+	vertical-align: middle;
+}
+
+.pull-right {
+	float: right;
+
+	&:after {
+		@extend .clearfix;
+	}
+}
+
+.pull-left {
+	float: left;
+
+	&:after {
+		@extend .clearfix;
+	}
+}
+
+.hidden {
+	display: none;
+}
+
+@import 'grid';
+@import 'text';
+@import 'input';
+@import 'buttons';
+@import 'views/footer';
+@import 'views/header';
+@import 'views/posts';

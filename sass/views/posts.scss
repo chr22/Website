@@ -1,0 +1,18 @@
+.posts {
+
+	p {
+		margin-top: 0;
+	}
+
+	.shortText {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		height: 4em;
+	}
+
+	.postFormat {
+		text-align: center;
+		box-shadow: 0 0 5px #888888;
+		background-color: #eaeaea;
+	}
+}

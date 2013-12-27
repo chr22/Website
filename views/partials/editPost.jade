@@ -1,0 +1,8 @@
+div(ng-controller="EditPostCtrl")
+	h2 Edit post
+	label(for='title') Title
+	input(ng-model='form.title')
+	p Text
+	textarea(ng-model='form.text', cols='50', rows='15')
+	p
+		button(ng-click='EditPost()') Edit Post
