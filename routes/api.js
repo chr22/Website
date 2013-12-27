@@ -8,6 +8,7 @@ exports.posts = function (req, res) {
 	posts.find().toArray(function(err, result) {
 		if(err) throw err;
 		console.log(result);
+		console.log("development");
 		res.json({
 			posts: result
 		});
@@ -25,7 +26,6 @@ exports.post = function (req, res) {
 		});
 	});
 };
-
 
 // POST
 exports.addPost = function (req, res) {
