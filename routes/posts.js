@@ -6,9 +6,7 @@ var posts = db.collection('posts');
 // GET all
 exports.posts = function (req, res) {
 	posts.find().toArray(function(err, result) {
-		if(err) throw err;
-		console.log(result);
-		console.log("development");
+		if(err) throw err;		
 		res.json({
 			posts: result
 		});
@@ -16,11 +14,9 @@ exports.posts = function (req, res) {
 };
 
 // GET single
-exports.post = function (req, res) {
-	console.log("get single");
+exports.post = function (req, res) {	
 	posts.findById(db.ObjectID.createFromHexString(req.params.id), function(err, result) {
-		if(err) throw err;
-		console.log(result);
+		if(err) throw err;		
 		res.json({
 			post: result
 		});
@@ -31,15 +27,12 @@ exports.post = function (req, res) {
 exports.addPost = function (req, res) {
 	posts.insert(req.body, null, function(err, result) {
 		if(err) throw err;
-		console.log("addpost");
-		console.log(result);
 		res.json(result);
 	});
 };
 
 // PUT
-exports.editPost = function (req, res) {
-	console.log("edit");
+exports.editPost = function (req, res) {	
 	delete req.body._id;
 	posts.updateById(db.ObjectID.createFromHexString(req.params.id), {$set: req.body}, {safe:true, multi:false}, function(err, success, result) {
 		if(err) throw err;
@@ -48,8 +41,7 @@ exports.editPost = function (req, res) {
 };
 
 // DELETE
-exports.deletePost = function (req, res) {
-	console.log("delete");
+exports.deletePost = function (req, res) {	
     posts.removeById(db.ObjectID.createFromHexString(req.params.id), function(err, result) {
 		if(err) throw err;
 		res.json(true);

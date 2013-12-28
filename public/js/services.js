@@ -32,7 +32,7 @@ myApp.factory('PostService', ["$http", function($http) {
 			return _post;
 		},
 		GetPostsFromServer: function() {
-			return $http.get('/api/posts').
+			return $http.get('/posts/posts').
 				success(function(data, status, headers, config) {
 					_posts = data.posts;
 				});
@@ -44,7 +44,7 @@ myApp.factory('PostService', ["$http", function($http) {
 			return _posts.length;
 		},
 		DeletePost: function(id) {
-			return $http.delete('/api/post/' + id).
+			return $http.delete('/posts/post/' + id).
 				success(function(data, status, headers, config) {
 					for(var i = 0; i < _posts.length; i++) {
 						if(_posts[i]._id == id) {
@@ -54,13 +54,13 @@ myApp.factory('PostService', ["$http", function($http) {
 				});
 		},
 		AddPost: function(form) {
-			return $http.post('/api/post', form).
+			return $http.post('/posts/post', form).
 				success(function(data) {
 					_posts.push(data[0]);
 				});
 		},
 		EditPost: function(form) {
-			return $http.put('/api/post/' + form._id, form).
+			return $http.put('/posts/post/' + form._id, form).
 				success(function(data) {
 					for(var i = 0; i < _posts.length; i++) {
 						if(_posts[i]._id == id) {

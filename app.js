@@ -1,22 +1,11 @@
-
-/**
- * Module dependencies
- */
-
 var express = require('express'),
   	routes = require('./routes'),
-  	api = require('./routes/api'),
+  	posts = require('./routes/posts'),
+	schedules = require('./routes/schedules'),
   	http = require('http'),
-	path = require('path'),
-	mongoskin = require('mongoskin');
+	path = require('path');	
 
 var app = module.exports = express();
-
-
-
-/**
- * Configuration
- */
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -38,27 +27,28 @@ if (app.get('env') === 'production') {
   // TODO
 };
 
+// Routes
 
-/**
- * Routes
- */
-
-// serve index and view partials
+// Serve index and view partials
 app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
+//app.get('/partials/posts/:name', routes.posts);
 
 // JSON API
-app.get('/api/posts', api.posts);
+// Posts
+app.get('/posts/posts', posts.posts);
 
-app.get('/api/post/:id', api.post);
-app.post('/api/post', api.addPost);
-app.put('/api/post/:id', api.editPost);
-app.delete('/api/post/:id', api.deletePost);
+app.get('/posts/post/:id', posts.post);
+app.post('/posts/post', posts.addPost);
+app.put('/posts/post/:id', posts.editPost);
+app.delete('/posts/post/:id', posts.deletePost);
+
+// Schedule
+//app.get('/schedule/schedules', schedules.schedules);
+//app.get('/schedule/schedule/:id', schedules.schedule);
 
 // redirect all others to the index (HTML5 history)
-app.get('*', routes.index);
-
-
+//app.get('*', routes.index);
 
 // Start Server
 http.createServer(app).listen(8888, function () {
