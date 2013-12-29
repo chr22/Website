@@ -1,2 +1,2 @@
 #!/bin/bash
-kill -TERM $(cat website.pid) 
+kill -TERM $(cat website.pid)  
