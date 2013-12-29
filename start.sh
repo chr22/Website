@@ -1,3 +1,3 @@
 #!/bin/bash
 nohup node app.js &
-nano $! > website.pid
+echo $! > website.pid
