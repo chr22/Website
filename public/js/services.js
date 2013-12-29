@@ -47,8 +47,7 @@ myApp.factory('PostService', ["$http", function($http) {
 		},
 		EditPost: function(form) {
 			return $http.put('/posts/post/' + form._id, form).
-				success(function(data) {
-					console.log(data);
+				success(function(data) {					
 					for(var i = 0; i < _posts.length; i++) {
 						if(_posts[i]._id == form._id) {
 							_posts[i] = form;

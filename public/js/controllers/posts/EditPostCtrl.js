@@ -4,14 +4,8 @@ myApp.controller('EditPostCtrl', ["$scope", "$http", "$location", "$routeParams"
 	$scope.form = PostService.GetPost($routeParams.id);
 	$scope.copy = {}
 	
-	$scope.$watch(function() {
-		//console.log($scope.form)
-	}, $scope.form);
-	
-	$scope.copyForm = function () {		
-		//$scope.copy = $scope.form;
-		angular.copy($scope.form, $scope.copy);
-		console.log($scope.copy);
+	$scope.copyForm = function () {				
+		angular.copy($scope.form, $scope.copy);		
 	}();
 
 	$scope.EditPost = function () {		
