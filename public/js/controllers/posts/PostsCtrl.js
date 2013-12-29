@@ -1,6 +1,6 @@
 'use strict';
 
-myApp.controller('PostsCtrl', ["$scope", "$http", "$location", "$routeParams", "$rootScope", "PostService", function PostCtrl($scope, $http, $location, $routeParams, $rootScope, PostService) {
+myApp.controller('PostsCtrl', ["$scope", "$location", "$routeParams", "PostService", function PostCtrl($scope, $location, $routeParams, PostService) {
     $scope.form = {};
 	$scope.posts = {};
 	$scope.post = {};

@@ -3,6 +3,7 @@ div(ng-controller="EditPostCtrl")
 	label(for='title') Title
 	input(ng-model='form.title')
 	p Text
-	textarea(ng-model='form.text', cols='50', rows='15')
+	textarea(ng-model='copy.text', cols='50', rows='15')
 	p
 		button(ng-click='EditPost()') Edit Post
+		button(ng-click="Cancel()") Cancel

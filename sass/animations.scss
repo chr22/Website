@@ -1,0 +1,42 @@
+.transition {
+    $transitionTime: 500ms;
+	-webkit-transition: all $transitionTime ease;
+	-moz-transition: all $transitionTime ease;
+	-ms-transition: all $transitionTime ease;
+	-o-transition: all $transitionTime ease;
+	transition: all $transitionTime ease;
+}
+
+.fast-transition {
+    $transitionTime: 200ms;
+	-webkit-transition: all $transitionTime ease;
+	-moz-transition: all $transitionTime ease;
+	-ms-transition: all $transitionTime ease;
+	-o-transition: all $transitionTime ease;
+	transition: all $transitionTime ease;
+}
+
+.long-transition {
+    $transitionTime: 1000ms;
+	-webkit-transition: all $transitionTime ease;
+	-moz-transition: all $transitionTime ease;
+	-ms-transition: all $transitionTime ease;
+	-o-transition: all $transitionTime ease;
+	transition: all $transitionTime ease;
+}
+
+.no-transition {
+    $transitionTime: 1000ms;
+	-webkit-transition: none;
+	-moz-transition: none;
+	-ms-transition: none;
+	-o-transition: none;
+	transition: none;
+}
+
+.spin {
+	-webkit-animation: spin 2s infinite linear;
+	-moz-animation: spin 2s infinite linear;
+	-o-animation: spin 2s infinite linear;
+	animation: spin 2s infinite linear;
+}

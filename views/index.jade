@@ -4,15 +4,7 @@ block body
 		div(ng-include="'partials/header.jade'")
 		.body
 			.grid
-				.col-1-1
-					h2 My Blog
-					ul
-						li
-							a(href='/') Home
-						li
-							a(href='/posts') Posts
-						li
-							a(href='/addPost') Add a new post
+				.col-1-1						
 				div(ng-view)
 		div(ng-include="'partials/footer.jade'")
 	script(src="../js/lib/Analytics.js")

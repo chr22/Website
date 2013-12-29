@@ -10,4 +10,11 @@ a {
 
 button {
 	cursor: pointer;
+	border: none;
+	padding: 10px 20px;
+	background-color: $btnColor;
+	
+	&:hover {
+		background-color: darken($btnColor, 20%);
+	}
 }

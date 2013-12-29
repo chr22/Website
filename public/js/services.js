@@ -1,23 +1,9 @@
 'use strict';
 
-/* Services */
-
-
-// Demonstrate how to register services
-// In this case it is a simple value service.
-//angular.module('myApp.services', [])
-//  .value('version', '0.1');
-
-//myApp.factory
-
 myApp.factory('PostService', ["$http", function($http) {
 	var _posts = [];
 	var _post = {};
 	return {
-		/*AddPost: function(newPost) {
-			posts.push(newPost);
-			return _posts;
-		},*/
 		ReplacePosts: function(newPosts) {
 			_posts = newPosts;
 			return _posts;
@@ -62,8 +48,9 @@ myApp.factory('PostService', ["$http", function($http) {
 		EditPost: function(form) {
 			return $http.put('/posts/post/' + form._id, form).
 				success(function(data) {
+					console.log(data);
 					for(var i = 0; i < _posts.length; i++) {
-						if(_posts[i]._id == id) {
+						if(_posts[i]._id == form._id) {
 							_posts[i] = form;
 						}
 					}

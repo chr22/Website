@@ -1,6 +1,6 @@
 p {
-	font-family: Roboto, sans-serif;
-	font-weight: 100;
+	font-family: Roboto, sans-serif;	
+	font-weight: normal;
 }
 
 h2 {
@@ -10,4 +10,8 @@ h2 {
 
 .white {
 	color: white;
+}
+
+.lightFont {
+	font-weight: 100;
 }
