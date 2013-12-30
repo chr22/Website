@@ -1,3 +1,5 @@
+//not done
+
 var mongoskin = require('mongoskin');
 
 var db = mongoskin.db('localhost:27017/schedules', {safe:true});

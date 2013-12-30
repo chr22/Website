@@ -2,6 +2,8 @@ var express = require('express'),
   	routes = require('./routes'),
   	posts = require('./routes/posts'),
 	schedules = require('./routes/schedules'),
+	reports = require('./routes/reports'),
+	comments = require('./routes/comments'),
   	http = require('http'),
 	path = require('path');	
 
@@ -32,9 +34,13 @@ if (app.get('env') === 'production') {
 // Serve index and view partials
 app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
-//app.get('/partials/posts/:name', routes.posts);
+app.get('/partials/posts/:name', routes.posts);
+app.get('/partials/schedules/:name', routes.schedules);
+app.get('/partials/reports/:name', routes.reports);
+app.get('/partials/comments/:name', routes.comments);
 
 // JSON API
+
 // Posts
 app.get('/posts/posts', posts.posts);
 

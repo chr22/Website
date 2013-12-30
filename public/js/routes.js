@@ -4,25 +4,28 @@ myApp.config(['$routeProvider', '$locationProvider', function($routePorvider, $l
 		templateUrl: 'partials/index'	
 	}).
 	when('/posts', {
-		templateUrl: 'partials/posts'
+		templateUrl: 'partials/posts/posts'
 	}).
 	when('/addPost', {
-		templateUrl: 'partials/addPost'
+		templateUrl: 'partials/posts/addPost'
 	}).
 	when('/readPost/:id', {
-		templateUrl: 'partials/readPost'		
+		templateUrl: 'partials/posts/readPost'		
 	}).
 	when('/editPost/:id', {
-		templateUrl: 'partials/editPost'		
+		templateUrl: 'partials/posts/editPost'		
 	}).
 	when('/deletePost/:id', {
-		templateUrl: 'partials/deletePost'		
+		templateUrl: 'partials/posts/deletePost'		
 	}).
 	when('/schedules', {
-		templateUrl: 'partials/schedules'		
+		templateUrl: 'partials/schedules/schedules'		
 	}).
 	when('/comments', {
-		templateUrl: 'partials/comments'		
+		templateUrl: 'partials/comments/comments'		
+	}).	
+	when('/reports', {
+		templateUrl: 'partials/reports/reports'		
 	}).	
 	when('/about', {
 		templateUrl: 'partials/about'
@@ -30,5 +33,6 @@ myApp.config(['$routeProvider', '$locationProvider', function($routePorvider, $l
 	otherwise({
 		redirectTo: '/'
 	});
-	$locationProvider.html5Mode(true);
+	
+	//$locationProvider.html5Mode(true);
 }]);
