@@ -3,6 +3,12 @@ myApp.config(['$routeProvider', '$locationProvider', function($routePorvider, $l
 	when('/', {
 		templateUrl: 'partials/index'	
 	}).
+	when('/login', {
+		templateUrl: 'partials/login'	
+	}).
+	when('/user', {
+		templateUrl: 'partials/user'	
+	}).
 	when('/posts', {
 		templateUrl: 'partials/posts/posts'
 	}).

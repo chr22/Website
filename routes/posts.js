@@ -5,6 +5,7 @@ var posts = db.collection('posts');
 
 // GET all
 exports.posts = function (req, res) {
+	console.log("in posts");
 	posts.find().toArray(function(err, result) {
 		if(err) throw err;		
 		res.json({

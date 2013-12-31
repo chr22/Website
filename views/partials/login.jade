@@ -1,0 +1,6 @@
+.login(ng-controller="LoginCtrl")
+	h1 Login
+	form(method="post", ng-submit="submit()")
+		input(name="username", placeholder="Username", ng-model="formData.username")
+		input(name="password", type="password", placeholder="Password", ng-model="formData.password")
+		button(type="submit") Log in
