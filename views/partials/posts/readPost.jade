@@ -1,4 +1,8 @@
 .posts(ng-controller="ReadPostCtrl")
 	h3 {{post.title}}
 	p {{post.text}}	
+	a(ng-click="EditPost(post._id)") Edit
+	|	- 	
+	a(ng-click="DeletePost(post._id)") Delete
+	|	- 
 	a(href="#/posts") Back
