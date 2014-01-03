@@ -38,12 +38,12 @@ module.exports = function (db) {
 	// development only
 	if (app.get('env') === 'development') {
 		app.use(express.errorHandler());
-	};
+	}
 	
 	// production only
 	if (app.get('env') === 'production') {
 		// TODO
-	};
+	}
 	
 	// Routes
 	
@@ -85,6 +85,6 @@ module.exports = function (db) {
 	//app.get('*', routes.index);
 	
 	return app;
-}
+};
 
 
