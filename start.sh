@@ -1,4 +1,4 @@
 #!/bin/bash
 rm nohup.out
-nohup node app.js &
+nohup node server.js &
 echo $! > website.pid
