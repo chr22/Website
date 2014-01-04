@@ -1,2 +1,8 @@
 .reports(ng-controller="ReportsCtrl")
-	p Reportingsystem - Coming soon :)
+	h2 Reports
+	ul		
+		li
+			a(href='#/addReport') Add a new report
+	p There are {{reports.length}} reports
+	div(ng-repeat="report in reports")
+		a(ng-click="ReadReport(report._id)") {{report.Title}} | {{report.DateCreated | date:'dd-MM-yyyy'}}

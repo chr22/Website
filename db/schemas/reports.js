@@ -1,34 +1,12 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+	Schema = mongoose.Schema;
 
-module.exports = mongoose.model('Reports', {
-	subject: String,
-	title: String,
-	text: String,
-	dateCreated: { type: Date, default: Date.now },
-	lastUpdate: Date,
-	state: String,
-	comments: {
-		title: String,
-		text: String,
-		name: String,
-		dateCreated: {type: Date, default: Date.now }
-	}
-})
-
-//var Schema = mongoose.Schema;
-//	//ObjectId = Schema.ObjectId;
-//
-//var reports = new Schema({
-//	subject: String,
-//	title: String,
-//	text: String,
-//	dateCreated: { type: Date, default: Date.now },
-//	lastUpdate: Date,
-//	state: String,
-//	comments: {
-//		title: String,
-//		text: String,
-//		name: String,
-//		dateCreated: {type: Date, default: Date.now }
-//	}	
-//});
+module.exports = mongoose.model('Reports', {	
+	Subject: String,  //What project is it about
+	Title: String,
+	Text: String,
+	DateCreated: { type: Date, default: Date.now },
+	LastUpdated: Date,
+	State: String,  //not seen, acknowledged, being worked on, fixed
+	Comments: [{type: String, ref: 'Comments'}]
+});

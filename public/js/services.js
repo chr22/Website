@@ -3,6 +3,7 @@
 myApp.factory('PostService', ["$http", function($http) {
 	var _posts = [];
 	var _post = {};
+	
 	return {
 		ReplacePosts: function(newPosts) {
 			_posts = newPosts;
@@ -18,8 +19,8 @@ myApp.factory('PostService', ["$http", function($http) {
 			return _post;
 		},
 		GetPostsFromServer: function() {
-			return $http.get('/posts/posts').
-				success(function(data, status, headers, config) {
+			return $http.get('/posts/posts')
+				.success(function(data, status, headers, config) {
 					_posts = data.posts;
 				});
 		},
@@ -54,6 +55,42 @@ myApp.factory('PostService', ["$http", function($http) {
 						}
 					}
 				});
+		}
+	};
+}]);
+
+myApp.factory('ReportService', ["$http", function($http) {
+	var _reports = [];
+	var _report = {};
+	
+	return {
+		GetReportsFromServer: function() {			
+			return $http.get('/reports/reports')
+				.success(function(data, status, headers, config) {
+					_reports = data.reports;					
+				});
+		},
+		GetReportsFromClient: function() {
+			return _reports;
+		},
+		GetReportCount: function() {
+			return _reports.length;
+		},
+		AddReport: function(form) {
+			return $http.post('/reports/addReport/', form)
+				.success(function(data) {
+					console.log(data);
+					_reports.push(data[0]);
+				});
+		},
+		GetReport: function(id) {
+			_reports.forEach(function(report) {
+				if(report._id == id) {
+					_report = report
+					return report;
+				}
+			});
+			return _report;
 		}
 	};
 }]);

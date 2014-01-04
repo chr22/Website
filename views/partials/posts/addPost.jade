@@ -3,7 +3,8 @@
 	label(for='title') Title:
 	input(ng-model='form.title', name='title')
 	p Body:
-	textarea(ng-model='form.text', cols='50', rows='15')
+	textarea(ng-model='form.text', cols='50', rows='15', maxlength="50")
 	p
 		button(ng-click='AddPost()') Submit Post
+		button(ng-click='back()') Cancel
 

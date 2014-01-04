@@ -33,6 +33,12 @@ myApp.config(['$routeProvider', '$locationProvider', function($routePorvider, $l
 	when('/reports', {
 		templateUrl: 'partials/reports/reports'		
 	}).	
+	when('/readReport/:id', {
+		templateUrl: 'partials/reports/readReport'		
+	}).	
+	when('/addReport', {
+		templateUrl: 'partials/reports/addReport'		
+	}).	
 	when('/about', {
 		templateUrl: 'partials/about'
 	}).

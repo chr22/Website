@@ -2,7 +2,7 @@
 
 myApp.controller('PostsCtrl', ["$scope", "$location", "$routeParams", "PostService", function PostCtrl($scope, $location, $routeParams, PostService) {
     $scope.form = {};
-	$scope.posts = {};
+	$scope.posts = [];
 	$scope.post = {};
 
 	$scope.GetPosts = function() {
@@ -10,7 +10,7 @@ myApp.controller('PostsCtrl', ["$scope", "$location", "$routeParams", "PostServi
 			PostService.GetPostsFromServer().success(function (data) {
 				$scope.posts = data.posts;
 			});
-		}
+		} 
 		else {
 			$scope.posts = PostService.GetPostsFromClient();
 		}

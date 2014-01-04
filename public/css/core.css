@@ -1491,6 +1491,9 @@ body {
 .col-1-8 {
   width: 12.5%; }
 
+.col-1-10 {
+  width: 10%; }
+
 .col-2-10 {
   width: 20%; }
 
@@ -1516,6 +1519,9 @@ h2 {
 
 .lightFont {
   font-weight: 100; }
+
+textarea {
+  resize: vertical; }
 
 a {
   text-decoration: none;
@@ -1576,3 +1582,7 @@ a.littleMargTop {
   background-color: #eaeaea; }
 .posts .rightMarg {
   margin-right: 10px; }
+
+.reports .label {
+  width: 80px;
+  display: inline-block; }

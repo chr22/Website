@@ -70,19 +70,21 @@ module.exports = function (db) {
 	// JSON API
 	
 	// Posts
-	app.get('/posts/posts', posts.posts);
-	
+	app.get('/posts/posts', posts.posts);	
 	app.get('/posts/post/:id', posts.post);
 	app.post('/posts/post', posts.addPost);
 	app.put('/posts/post/:id', posts.editPost);
 	app.delete('/posts/post/:id', posts.deletePost);
 	
-	// Schedule
-	//app.get('/schedule/schedules', schedules.schedules);
-	//app.get('/schedule/schedule/:id', schedules.schedule);
-	
-	// redirect all others to the index (HTML5 history)
-	//app.get('*', routes.index);
+	// Reports
+	app.get('/reports/reports', reports.reports);
+	app.get('/reports/reportsWithComments', reports.reportsWithComments);
+	app.get('/reports/report/:id', reports.report);
+	app.get('/reports/reportWithComments/:id', reports.report);	
+	app.post('/reports/addReport', reports.addReport);
+	app.put('/reports/editReport', reports.editReport);
+	app.delete('/reports/deleteReport', reports.deleteReport);
+	app.delete('/reports/deleteReports', reports.deleteReports);
 	
 	return app;
 };

@@ -1,6 +1,6 @@
 var mongoskin = require('mongoskin');
 
-var db = mongoskin.db('localhost:27017/blog', {safe:true});
+var db = mongoskin.db('localhost:27017/website', {safe:true});
 var posts = db.collection('posts');
 
 // GET all

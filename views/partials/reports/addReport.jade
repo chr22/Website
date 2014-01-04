@@ -1,0 +1,17 @@
+.reports(ng-controller="AddReportCtrl")
+	h2 Write a new report
+	
+	.col-1-1
+		label.label(for='title') Subject:
+		input(ng-model='form.Subject', name='subject')
+	
+	.col-1-1
+		label.label(for='title') Title:
+		input(ng-model='form.Title', name='subject')
+	
+	p Body:
+	textarea(ng-model='form.Text', cols='50', rows='15', maxwidth="50")
+	p
+		button(ng-click='AddPost()') Submit Report
+		button(ng-click='back()') Cancel
+
