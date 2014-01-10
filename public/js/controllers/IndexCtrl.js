@@ -1,5 +1,7 @@
-'use strict';
+(function () {
+	'use strict';
 
-myApp.controller('IndexCtrl', ["$scope", "$http", function IndexCtrl($scope, $http) {
-
-}]);
+	myApp.controller('IndexCtrl', ["$scope", "$http", function IndexCtrl($scope, $http) {
+	
+	}]);
+}());

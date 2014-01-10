@@ -1,0 +1,8 @@
+{
+	"globals": {
+		"module": false,
+		"require": false,
+		"__dirname": false,
+		"process": false
+	}
+}

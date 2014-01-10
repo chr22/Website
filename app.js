@@ -7,8 +7,8 @@ module.exports = function (db) {
 		schedules = require('./routes/schedules'),
 		reports = require('./routes/reports'),
 		comments = require('./routes/comments'),		
-		path = require('path'),				
-		app = express();
+		path = require('path'),											
+		app = express();	
 	
 	// all environments
 	app.set('port', process.env.PORT || 3000);
@@ -22,7 +22,7 @@ module.exports = function (db) {
 		store: new MongoStore({
 			mongoose_connection: db
 		})
-	}));
+	}));	
 	app.use(passport.initialize());
 	app.use(passport.session());	
 	app.use(express.bodyParser());
@@ -30,10 +30,9 @@ module.exports = function (db) {
 	app.use(function(req, res, next){
 		res.set('X-Powered-By', 'Svejstrups Playground');
 		next();
-	});
+	});	
 	app.use(app.router);
-	app.use(express.static(path.join(__dirname, 'public')));
-	
+	app.use(express.static(path.join(__dirname, 'public')));	
 	
 	// development only
 	if (app.get('env') === 'development') {
@@ -83,10 +82,8 @@ module.exports = function (db) {
 	app.get('/reports/reportWithComments/:id', reports.report);	
 	app.post('/reports/addReport', reports.addReport);
 	app.put('/reports/editReport', reports.editReport);
-	app.delete('/reports/deleteReport', reports.deleteReport);
+	app.delete('/reports/deleteReport/:id', reports.deleteReport);
 	app.delete('/reports/deleteReports', reports.deleteReports);
 	
 	return app;
 };
-
-

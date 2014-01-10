@@ -1586,3 +1586,5 @@ a.littleMargTop {
 .reports .label {
   width: 80px;
   display: inline-block; }
+.reports .margLeft {
+  margin-left: 20px; }

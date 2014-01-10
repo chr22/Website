@@ -1,4 +1,5 @@
 module.exports = function(grunt) {	
+	require('load-grunt-tasks')(grunt);
 	
 	// Project configuration.
 	grunt.initConfig({
@@ -30,15 +31,17 @@ module.exports = function(grunt) {
 				files: '**/*.scss',
 				tasks: ['sass']
 			}
+		},
+		nodemon: {
+			dev: {}
+		},
+		concurrent: {
+			target1: ['watch', 'nodemon'],
+			target2: ['watch', 'nodemon', 'uglify']
 		}
 	});
 	
-	// Load the plugin that provides the "uglify" task.
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-sass');
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	
 	// Default task(s).
-	grunt.registerTask('default', ['uglify', 'sass']);
-	
+	grunt.registerTask('default', ['concurrent:target1']);
+	grunt.registerTask('ugly', ['concurrent:target2']);	
 };
