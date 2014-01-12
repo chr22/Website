@@ -1,0 +1,20 @@
+table {
+	border: 1px solid #cccad0;
+}
+
+thead {
+	background-color: #e6e5e8;
+}
+
+tbody {
+	tr:nth-child(even) {
+		background-color: #efeef0;
+	}
+	
+	tr {
+		&:hover {
+			background-color: darken(#efeef0, 20%);
+			cursor: pointer;
+		}
+	}
+}

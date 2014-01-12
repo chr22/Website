@@ -7,7 +7,8 @@ module.exports = function (db) {
 		schedules = require('./routes/schedules'),
 		reports = require('./routes/reports'),
 		comments = require('./routes/comments'),		
-		path = require('path'),											
+		path = require('path'),		
+		modRewrite = require('connect-modrewrite'),
 		app = express();	
 	
 	// all environments
@@ -32,7 +33,7 @@ module.exports = function (db) {
 		next();
 	});	
 	app.use(app.router);
-	app.use(express.static(path.join(__dirname, 'public')));	
+	app.use(express.static(path.join(__dirname, 'public')));		
 	
 	// development only
 	if (app.get('env') === 'development') {
@@ -48,6 +49,10 @@ module.exports = function (db) {
 	
 	// Serve index and view partials
 	app.get('/', routes.index);
+//	app.get('*', function(req, res) {
+//		res.sendfile(__dirname + '/index');	
+//	});
+	
 	app.get('/partials/:name', routes.partials);
 	app.get('/partials/posts/:name', routes.posts);
 	app.get('/partials/schedules/:name', routes.schedules);

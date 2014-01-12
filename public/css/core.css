@@ -1542,6 +1542,109 @@ a.littleMargTop {
   margin-top: 10px;
   display: inline-block; }
 
+table {
+  border: 1px solid #cccad0; }
+
+thead {
+  background-color: #e6e5e8; }
+
+tbody tr:nth-child(even) {
+  background-color: #efeef0; }
+tbody tr:hover {
+  background-color: #bcb8c0;
+  cursor: pointer; }
+
+.accordion {
+  width: 830px;
+  overflow: hidden;
+  margin: 10px auto;
+  color: #474747;
+  background: #414141;
+  padding: 10px; }
+  .accordion section {
+    float: left;
+    overflow: hidden;
+    color: #333;
+    cursor: pointer;
+    background: #333;
+    margin: 3px; }
+    .accordion section p {
+      display: none; }
+    .accordion section h2 a {
+      padding: 8px, 10px;
+      display: block;
+      font-size: 16px;
+      font-weight: normal;
+      color: #eee;
+      text-decoration: none; }
+    .accordion section:hover {
+      background: #444; }
+    .accordion section:after {
+      position: relative;
+      font-size: 24px;
+      color: #000;
+      font-weight: bold; }
+    .accordion section:target {
+      background: #FFF;
+      padding: 10px; }
+      .accordion section:target h2 {
+        width: 100%; }
+        .accordion section:target h2 a {
+          color: #333;
+          padding: 0; }
+      .accordion section:target p {
+        display: block; }
+    .accordion section:target, .accordion section:hover {
+      background: #FFF; }
+  .accordion.vertical section {
+    width: 100%;
+    height: 40px;
+    -webkit-transition: height 0.2s ease-out;
+    -moz-transition: height 0.2s ease-out;
+    -o-transition: height 0.2s ease-out;
+    transition: height 0.2s ease-out; }
+    .accordion.vertical section:target {
+      height: 250px;
+      width: 97%; }
+    .accordion.vertical section:after {
+      top: -60px;
+      left: 810px; }
+    .accordion.vertical section:target, .accordion.vertical section:after {
+      left: -9999px; }
+    .accordion.vertical section h2 {
+      position: relative;
+      left: 0;
+      top: -15px; }
+  .accordion.horizontal section {
+    width: 5%;
+    height: 250px;
+    -moz-transition: width 0.2s ease-out;
+    -webkit-transition: width 0.2s ease-out;
+    -o-transition: width 0.2s ease-out;
+    transition: width 0.2s ease-out; }
+    .accordion.horizontal section:after {
+      top: 140px;
+      left: 15px; }
+    .accordion.horizontal section:target {
+      width: 73%;
+      height: 230px; }
+    .accordion.horizontal section h2 {
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+      transform: rotate(90deg);
+      width: 240px;
+      position: relative;
+      left: -100px;
+      top: 85px; }
+      .accordion.horizontal section h2:target {
+        top: 0px;
+        left: 0;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg); }
+
 .footer {
   height: 50px;
   width: 1200px;

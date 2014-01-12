@@ -2,6 +2,10 @@
 	'use strict';
 	
 	myApp.config(['$routeProvider', '$locationProvider', function($routePorvider, $locationProvider) {
+//		$locationProvider.html5Mode(true);
+		$locationProvider.html5Mode(false);
+//		$locationProvider.hashPrefix("!");
+		
 		$routePorvider.
 		when('/', {
 			templateUrl: 'partials/index'	
@@ -44,11 +48,17 @@
 		}).	
 		when('/about', {
 			templateUrl: 'partials/about'
-		}).
+		});/*.
 		otherwise({
 			redirectTo: '/'
-		});
-		
-		//$locationProvider.html5Mode(true);
+		});*/		
 	}]);
+	
+//	myApp.run(function($rootScope, $location, $anchorScroll, $routeParams) {
+//		$rootScope.$on('$routeChangeSuccess', function(newRoute, oldRoute) {
+//			$location.hash($routeParams.scrollTo);
+//			$anchorScroll();  
+//		});
+//	});
+	
 }());
