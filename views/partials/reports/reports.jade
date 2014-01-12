@@ -1,4 +1,4 @@
-.reports(ng-controller="ReportsCtrl")	
+.reports(ng-controller="ReportsCtrl")
 	h2 Reports
 	ul		
 		li
@@ -6,65 +6,52 @@
 		li
 			a(ng-click="DeleteReports()") Delete all reports
 	p There are {{reports.length}} reports
-	div(ng-repeat="report in reports")
-		p
-			a(ng-click="ReadReport(report._id)") {{report.Title}} | {{report.DateCreated | date:'dd-MM-yyyy'}}
-			a.margLeft(ng-click="DeleteReport(report._id)") Delete
 	
-	table
-		thead
-			tr
-				th Subject
-				th Title
-				th Text
-				th Date Created
-				th Date Updated
-				th State
-		tbody
-			tr(ng-click="back()")
-				td Website
-				td When is scheduling comming?
-				td I would like to have that function!
-				td 1/1/2000
-				td 2/1/2000
-				td Not seen
-			tr
-				td Website
-				td When is scheduling comming?
-				td I would like to have that function!
-				td 1/1/2000
-				td 2/1/2000
-				td Not seen
-			tr
-				td Website
-				td When is scheduling comming?
-				td I would like to have that function!
-				td 1/1/2000
-				td 2/1/2000
-				td Not seen
-			tr
-				td Website
-				td When is scheduling comming?
-				td I would like to have that function!
-				td 1/1/2000
-				td 2/1/2000
-				td Not seen
-		p test
-		.accordion.vertical
-			section#n1
-				h2 
-					a(ng-href="#/reports?scrollTo=n1") nummer 1
-				p noget tekst
-			section#n2
-				h2 
-					a(href="#afsfasdfasfas") nummer 2
-				p noget tekst
-			section#n3
-				h2 
-					a(href="#n3") nummer 3
-				p noget tekst
-			section#n4
-				h2 
-					a(href="#n4") nummer 4
-				p noget tekst
-		p test1
+	input(type="checkbox", ng-model="accordCheck", ng-click="check()", id="accordCheck")
+	label(for="accordCheck") Vertical- or horizontal accordion?
+		
+	.accordion(ng-class="accordType")
+		section(ng-repeat="report in reports")				
+			h2
+				a(ng-click="Accordion($event)", id="{{report._id}}") {{report.Title}}				
+			p {{report.Text}}
+	
+	div
+		table
+			thead
+				tr
+					th Subject
+					th Title
+					th Text
+					th Date Created
+					th Date Updated
+					th State
+			tbody
+				tr(ng-click="back()")
+					td Website
+					td When is scheduling comming?
+					td I would like to have that function!
+					td 1/1/2000
+					td 2/1/2000
+					td Not seen
+				tr
+					td Website
+					td When is scheduling comming?
+					td I would like to have that function!
+					td 1/1/2000
+					td 2/1/2000
+					td Not seen
+				tr
+					td Website
+					td When is scheduling comming?
+					td I would like to have that function!
+					td 1/1/2000
+					td 2/1/2000
+					td Not seen
+				tr
+					td Website
+					td When is scheduling comming?
+					td I would like to have that function!
+					td 1/1/2000
+					td 2/1/2000
+					td Not seen

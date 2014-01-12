@@ -1,9 +1,35 @@
 //http://www.hongkiat.com/blog/css-content-accordion/
 
 .accordion {
+	.checked {		
+		background: #FFF;
+		//padding: 10px;
+		
+		h2 {
+			width: 100%;
+			margin-bottom: 0;
+			
+			a {
+				color: #FFF;
+				background-color: #414141;
+				padding: 10px;
+			}
+		}
+		
+		p {
+			display: block;	
+			padding: 0 10px; 
+			margin-top: 0;
+		}
+		
+		&:hover {
+			background: #FFF;
+		}	
+	}
+	
 	width: 830px;
 	overflow: hidden;
-	margin: 10px auto;
+	margin: 10px 0;
 	color: #474747;
 	background: #414141;
 	padding: 10px;
@@ -20,8 +46,8 @@
 			display: none;
 		}
 		
-		h2 {
-			a {
+		h2 { 
+			a { 
 				padding: 8px 10px;
 				display: block;
 				font-size: 16px;
@@ -42,7 +68,7 @@
 			font-weight: bold;
 		}
 		
-		&:hover {
+		&:target {
 			background: #FFF;
 			padding: 10px;
 			
@@ -58,23 +84,20 @@
 			p {
 				display: block;				
 			}
-		}
-		
-		&:target, &:hover {
-			background: #FFF;
-		}		
+			
+			&:hover {
+				background: #FFF;
+			}
+		}				
 	}	
 	
 	&.vertical {
 		section {
 			width: 100%;
 			height: 40px;
-			-webkit-transition:height 0.2s ease-out;  
-			-moz-transition:height 0.2s ease-out;  
-			-o-transition:height 0.2s ease-out;  
 			transition:height 0.2s ease-out; 
 			
-			&:target {
+			&:target { 
 				height: 250px;
 				width: 97%;
 			}
@@ -93,6 +116,11 @@
 				left: 0;
 				top: -20px;
 			}
+			
+			&.checked {
+				height: 250px;
+				width: 97%;	
+			}
 		}
 	}	
 	
@@ -100,9 +128,6 @@
 		section {
 			width: 5%;
 			height: 250px;
-			-moz-transition: width 0.2s ease-out;   
-			-webkit-transition:width 0.2s ease-out;  
-			-o-transition:width 0.2s ease-out;  
 			transition:width 0.2s ease-out; 
 			
 			&:after {
@@ -115,11 +140,11 @@
 				height: 230px;
 			}
 			
-			h2 {
+			h2 { 
 				-webkit-transform:rotate(90deg);  
 				-moz-transform:rotate(90deg);  
 				-o-transform: rotate(90deg);  
-				transform: rotate(90deg);  
+				transform: rotate(90deg);    
 				width:240px;   
 				position:relative;   
 				left:-100px;   
@@ -127,11 +152,29 @@
 				
 				&:target {
 					top:0px;  
-					left:0;  
-					-webkit-transform:rotate(0deg);  
-					-moz-transform:rotate(0deg);  
-					-o-transform: rotate(0deg);  
-					transform: rotate(0deg); 
+					left:0; 
+				}
+			}
+			
+			&.checked {
+				width: 73%;
+				height: 230px;
+				
+				h2 {
+					top:0px;  
+					left:0; 
+					 
+				}
+				
+				a {
+					-webkit-transform:rotate(-90deg);  
+					-moz-transform:rotate(-90deg);  
+					-o-transform: rotate(-90deg);  
+					transform: rotate(-90deg); 
+					position: relative;
+					width: 590px;
+					right: 205px;
+					bottom: 185px;
 				}
 			}
 		}

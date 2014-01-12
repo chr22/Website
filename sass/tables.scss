@@ -1,20 +1,21 @@
 table {
 	border: 1px solid #cccad0;
+	cursor: pointer;
 }
 
 thead {
 	background-color: #e6e5e8;
+	cursor: default;
 }
 
-tbody {
+tbody {	
 	tr:nth-child(even) {
 		background-color: #efeef0;
 	}
 	
 	tr {
 		&:hover {
-			background-color: darken(#efeef0, 20%);
-			cursor: pointer;
+			background-color: darken(#efeef0, 20%);			
 		}
 	}
 }

@@ -48,10 +48,10 @@
 		}).	
 		when('/about', {
 			templateUrl: 'partials/about'
-		}).
+		});/*.
 		otherwise({
 			redirectTo: '/'
-		});		
+		});	*/	
 	}]);
 	
 	//format: "#/theView?scrollTo=theId"

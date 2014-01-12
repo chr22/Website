@@ -1,5 +1,22 @@
-.flex-container {
-	display: flex;
-	flex-flow: row-wrap;
-	justify-content: space-around;
+.flex-container {	
+	display: flex;	
+	flex-flow: row wrap;
+	justify-content: center;	
+	//margin: 10px;
 }
+
+.flex-header {
+	display: flex;	
+	flex-flow: row wrap;
+	align-items: center;
+}
+
+.first {
+	margin-left: 20px;
+}
+
+.last {
+	margin-left: auto;
+	margin-right: 20px;
+}
+

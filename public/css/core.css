@@ -1360,17 +1360,13 @@ body {
   background-color: #2e2e2e;
   color: black; }
 
-.body {
-  padding: 20px 0px 20px 20px;
+.pageContent {
+  padding: 20px 20px 20px 20px;
   background-color: white; }
 
-.content {
-  width: 960px;
+.page {
   margin-left: auto;
   margin-right: auto; }
-
-.container {
-  width: 960px !important; }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important; }
@@ -1438,79 +1434,6 @@ body {
   -o-animation: spin 2s infinite linear;
   animation: spin 2s infinite linear; }
 
-.grid {
-  margin: 0 0 1em 0; }
-  .grid:after {
-    content: "";
-    display: table;
-    clear: both; }
-
-/* Opt-in outside padding */
-.grid-pad {
-  padding: 1em 0 1em 1em; }
-  .grid-pad [class*='col-']:last-of-type {
-    padding-right: 1em; }
-
-[class*='col-'] {
-  float: left;
-  padding-right: 1em; }
-
-*, *:after, *:before {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-
-.col-1-1 {
-  width: 100%; }
-
-.col-1-2 {
-  width: 50%; }
-
-.col-1-3 {
-  width: 33.33%; }
-
-.col-2-3 {
-  width: 66.66%; }
-
-.col-1-4 {
-  width: 25%; }
-
-.col-3-4 {
-  width: 75%; }
-
-.col-1-5 {
-  width: 20%; }
-
-.col-2-5 {
-  width: 40%; }
-
-.col-3-5 {
-  width: 60%; }
-
-.col-4-5 {
-  width: 80%; }
-
-.col-1-6 {
-  width: 16.666%; }
-
-.col-1-8 {
-  width: 12.5%; }
-
-.col-1-10 {
-  width: 10%; }
-
-.col-2-10 {
-  width: 20%; }
-
-.col-3-10 {
-  width: 30%; }
-
-.col-4-10 {
-  width: 40%; }
-
-.col-6-10 {
-  width: 60%; }
-
 p {
   font-family: Roboto, sans-serif;
   font-weight: normal; }
@@ -1548,24 +1471,40 @@ a.littleMargTop {
   display: inline-block; }
 
 table {
-  border: 1px solid #cccad0; }
+  border: 1px solid #cccad0;
+  cursor: pointer; }
 
 thead {
-  background-color: #e6e5e8; }
+  background-color: #e6e5e8;
+  cursor: default; }
 
 tbody tr:nth-child(even) {
   background-color: #efeef0; }
 tbody tr:hover {
-  background-color: #bcb8c0;
-  cursor: pointer; }
+  background-color: #bcb8c0; }
 
 .accordion {
   width: 830px;
   overflow: hidden;
-  margin: 10px auto;
+  margin: 10px 0;
   color: #474747;
   background: #414141;
   padding: 10px; }
+  .accordion .checked {
+    background: #FFF; }
+    .accordion .checked h2 {
+      width: 100%;
+      margin-bottom: 0; }
+      .accordion .checked h2 a {
+        color: #FFF;
+        background-color: #414141;
+        padding: 10px; }
+    .accordion .checked p {
+      display: block;
+      padding: 0 10px;
+      margin-top: 0; }
+    .accordion .checked:hover {
+      background: #FFF; }
   .accordion section {
     float: left;
     overflow: hidden;
@@ -1589,24 +1528,21 @@ tbody tr:hover {
       font-size: 24px;
       color: #000;
       font-weight: bold; }
-    .accordion section:hover {
+    .accordion section:target {
       background: #FFF;
       padding: 10px; }
-      .accordion section:hover h2 {
+      .accordion section:target h2 {
         width: 100%; }
-        .accordion section:hover h2 a {
+        .accordion section:target h2 a {
           color: #333;
           padding: 0; }
-      .accordion section:hover p {
+      .accordion section:target p {
         display: block; }
-    .accordion section:target, .accordion section:hover {
-      background: #FFF; }
+      .accordion section:target:hover {
+        background: #FFF; }
   .accordion.vertical section {
     width: 100%;
     height: 40px;
-    -webkit-transition: height 0.2s ease-out;
-    -moz-transition: height 0.2s ease-out;
-    -o-transition: height 0.2s ease-out;
     transition: height 0.2s ease-out; }
     .accordion.vertical section:target {
       height: 250px;
@@ -1620,12 +1556,12 @@ tbody tr:hover {
       position: relative;
       left: 0;
       top: -20px; }
+    .accordion.vertical section.checked {
+      height: 250px;
+      width: 97%; }
   .accordion.horizontal section {
     width: 5%;
     height: 250px;
-    -moz-transition: width 0.2s ease-out;
-    -webkit-transition: width 0.2s ease-out;
-    -o-transition: width 0.2s ease-out;
     transition: width 0.2s ease-out; }
     .accordion.horizontal section:after {
       top: 140px;
@@ -1644,43 +1580,58 @@ tbody tr:hover {
       top: 85px; }
       .accordion.horizontal section h2:target {
         top: 0px;
-        left: 0;
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-        transform: rotate(0deg); }
+        left: 0; }
+    .accordion.horizontal section.checked {
+      width: 73%;
+      height: 230px; }
+      .accordion.horizontal section.checked h2 {
+        top: 0px;
+        left: 0; }
+      .accordion.horizontal section.checked a {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+        position: relative;
+        width: 590px;
+        right: 205px;
+        bottom: 185px; }
 
 .flex-container {
   display: flex;
-  flex-flow: row-wrap;
-  justify-content: space-around; }
+  flex-flow: row wrap;
+  justify-content: center; }
+
+.flex-header {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center; }
+
+.first {
+  margin-left: 20px; }
+
+.last {
+  margin-left: auto;
+  margin-right: 20px; }
 
 .footer {
   height: 50px;
-  width: 1200px;
   background-color: black;
   color: white;
-  vertical-align: middle;
-  display: table-cell;
-  padding-left: 1em;
-  padding-right: 1em; }
+  vertical-align: middle; }
   .footer a {
     margin-right: 15px; }
-    .footer a.last {
+    .footer a.lastItem {
       margin-right: 0; }
 
 .header {
   height: 50px;
-  width: 1200px;
   background-color: black;
   color: white;
-  vertical-align: middle;
-  display: table-cell;
-  padding-left: 1em;
-  padding-right: 1em; }
+  vertical-align: middle; }
   .header a {
     margin-right: 15px; }
-    .header a.last {
+    .header a.lastItem {
       margin-right: 0; }
 
 .posts p {
@@ -1692,7 +1643,10 @@ tbody tr:hover {
 .posts .postFormat {
   text-align: center;
   box-shadow: 0 0 5px #888888;
-  background-color: #eaeaea; }
+  background-color: #eaeaea;
+  min-width: 200px;
+  margin: 10px;
+  flex: 1; }
 .posts .rightMarg {
   margin-right: 10px; }
 

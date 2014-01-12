@@ -2,7 +2,10 @@
 	'use strict';
 
 	myApp.controller('ReportsCtrl', ["$scope", "$location", "$routeParams", "ReportService", function ReportsCtrl($scope, $location, $routeParams, ReportService) {
-		$scope.reports = [];
+		$scope.reports = [];		
+		$scope.AccordId = "";
+		$scope.accordCheck = false;
+		$scope.accordType = "vertical"
 		
 		$scope.GetReports = function() {
 			if(ReportService.GetReportCount() <= 0) {
@@ -34,6 +37,26 @@
 				ReportService.DeleteReport(id).success(function(data) {
 					$scope.reports = ReportService.GetReportsFromClient();
 				});	
+			}			
+		};
+		
+		$scope.check = function() {
+			if($scope.accordCheck) {
+				$scope.accordType = "vertical";
+			} else {
+				$scope.accordType = "horizontal";
+			}
+			console.log($scope.accordType);
+		};
+		
+		$scope.Accordion = function($event) {
+			if($scope.AccordId !== $event.currentTarget.id) {
+				console.log("sup");
+				$('#' + $scope.AccordId).parent().parent().removeClass("checked");
+				$scope.AccordId = $event.currentTarget.id;
+				$('#' + $scope.AccordId).parent().parent().addClass("checked");		
+			} else {
+				$('#' + $scope.AccordId).parent().parent().toggleClass("checked");
 			}			
 		};
 	}]);

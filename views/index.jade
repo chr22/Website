@@ -1,11 +1,9 @@
 extends layout
 block body	
-	.content(ng-controller="BaseCtrl")
+	.page(ng-controller="BaseCtrl")
 		div(ng-include="'partials/header.jade'")
-		.body			
-			.grid
-				.col-1-1						
-				div(ng-view)
+		.pageContent											
+			div(ng-view)
 		div(ng-include="'partials/footer.jade'")	
 	script(src="http://code.jquery.com/jquery-1.10.2.min.js")
 	script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js')

@@ -1,20 +1,20 @@
 .footer{
 	height: 50px;
-	width: 1200px;
+	//width: 1200px;
 	background-color: black;
 	color: white;
 	vertical-align: middle;
-	display: table-cell;
-	padding-left: $gridPadding;
-	padding-right: $gridPadding;
+	//display: table-cell;
+//	padding-left: $gridPadding;
+//	padding-right: $gridPadding;
+	
+	//@extend .flow-container 
 
 	a {
 		margin-right: 15px;
 
-		&.last {
+		&.lastItem {
 			margin-right: 0;
 		}
 	}
-
-
 }
