@@ -7,14 +7,14 @@ module.exports = function (db) {
 		schedules = require('./routes/schedules'),
 		reports = require('./routes/reports'),
 		comments = require('./routes/comments'),		
-		path = require('path'),		
-		modRewrite = require('connect-modrewrite'),
+		path = require('path'),				
 		app = express();	
 	
 	// all environments
 	app.set('port', process.env.PORT || 3000);
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'jade');
+	app.use(express.static(path.join(__dirname, 'public')));
 	app.use(express.favicon(path.join(__dirname + "/public/images/favicon.png")));
 	app.use(express.logger('dev'));
 	app.use(express.cookieParser());
@@ -49,9 +49,6 @@ module.exports = function (db) {
 	
 	// Serve index and view partials
 	app.get('/', routes.index);
-//	app.get('*', function(req, res) {
-//		res.sendfile(__dirname + '/index');	
-//	});
 	
 	app.get('/partials/:name', routes.partials);
 	app.get('/partials/posts/:name', routes.posts);
@@ -89,6 +86,8 @@ module.exports = function (db) {
 	app.put('/reports/editReport', reports.editReport);
 	app.delete('/reports/deleteReport/:id', reports.deleteReport);
 	app.delete('/reports/deleteReports', reports.deleteReports);
+	
+	app.get('*', routes.index);	
 	
 	return app;
 };

@@ -1365,23 +1365,28 @@ body {
   background-color: white; }
 
 .content {
-  width: 1200px;
+  width: 960px;
   margin-left: auto;
   margin-right: auto; }
 
 .container {
-  width: 1200px !important; }
+  width: 960px !important; }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important; }
 
-.clearfix, .pull-right:after, .pull-left:after {
+.clearfix:after, .pull-right:after, .pull-left:after {
   visibility: hidden;
   display: block;
   font-size: 0;
   content: " ";
   clear: both;
   height: 0; }
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both; }
 
 .snug-fit-cell {
   width: 1%;
@@ -1571,7 +1576,7 @@ tbody tr:hover {
     .accordion section p {
       display: none; }
     .accordion section h2 a {
-      padding: 8px, 10px;
+      padding: 8px 10px;
       display: block;
       font-size: 16px;
       font-weight: normal;
@@ -1584,15 +1589,15 @@ tbody tr:hover {
       font-size: 24px;
       color: #000;
       font-weight: bold; }
-    .accordion section:target {
+    .accordion section:hover {
       background: #FFF;
       padding: 10px; }
-      .accordion section:target h2 {
+      .accordion section:hover h2 {
         width: 100%; }
-        .accordion section:target h2 a {
+        .accordion section:hover h2 a {
           color: #333;
           padding: 0; }
-      .accordion section:target p {
+      .accordion section:hover p {
         display: block; }
     .accordion section:target, .accordion section:hover {
       background: #FFF; }
@@ -1614,7 +1619,7 @@ tbody tr:hover {
     .accordion.vertical section h2 {
       position: relative;
       left: 0;
-      top: -15px; }
+      top: -20px; }
   .accordion.horizontal section {
     width: 5%;
     height: 250px;
@@ -1644,6 +1649,11 @@ tbody tr:hover {
         -moz-transform: rotate(0deg);
         -o-transform: rotate(0deg);
         transform: rotate(0deg); }
+
+.flex-container {
+  display: flex;
+  flex-flow: row-wrap;
+  justify-content: space-around; }
 
 .footer {
   height: 50px;

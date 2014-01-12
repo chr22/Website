@@ -2,8 +2,8 @@
 	'use strict';
 	
 	myApp.config(['$routeProvider', '$locationProvider', function($routePorvider, $locationProvider) {
-//		$locationProvider.html5Mode(true);
-		$locationProvider.html5Mode(false);
+		$locationProvider.html5Mode(true);
+//		$locationProvider.html5Mode(false);
 //		$locationProvider.hashPrefix("!");
 		
 		$routePorvider.
@@ -48,12 +48,13 @@
 		}).	
 		when('/about', {
 			templateUrl: 'partials/about'
-		});/*.
+		}).
 		otherwise({
 			redirectTo: '/'
-		});*/		
+		});		
 	}]);
 	
+	//format: "#/theView?scrollTo=theId"
 //	myApp.run(function($rootScope, $location, $anchorScroll, $routeParams) {
 //		$rootScope.$on('$routeChangeSuccess', function(newRoute, oldRoute) {
 //			$location.hash($routeParams.scrollTo);

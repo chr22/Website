@@ -22,7 +22,7 @@
 		
 		h2 {
 			a {
-				padding: 8px, 10px;
+				padding: 8px 10px;
 				display: block;
 				font-size: 16px;
 				font-weight: normal;
@@ -32,7 +32,7 @@
 		}
 		
 		&:hover {
-			background: #444;
+			background: #444;			
 		}
 		
 		&:after {
@@ -42,7 +42,7 @@
 			font-weight: bold;
 		}
 		
-		&:target {
+		&:hover {
 			background: #FFF;
 			padding: 10px;
 			
@@ -91,7 +91,7 @@
 			h2 {
 				position: relative;
 				left: 0;
-				top: -15px;
+				top: -20px;
 			}
 		}
 	}	

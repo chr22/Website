@@ -1,7 +1,5 @@
 (function() {
-	'use-strict';
-	
-	var modRewrite = require('connect-modrewrite');
+	'use-strict';	
 	
 	module.exports = function(grunt) {	
 		require('load-grunt-tasks')(grunt);

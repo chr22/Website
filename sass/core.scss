@@ -14,26 +14,34 @@ body {
 }
 
 .content {
-	width: 1200px;
+	width: 960px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
 .container {
-    width: 1200px !important;
+    width: 960px !important;
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
 
-.clearfix {
-	visibility: hidden;
-	display: block;
-	font-size: 0;
-	content: " ";
+.clearfix {	
+	&:after {
+		visibility: hidden;
+		display: block;
+		font-size: 0;
+		content: " ";
+		clear: both;
+		height: 0;	
+	}	
+}
+
+.group:after {
+	content: "";
+	display: table;
 	clear: both;
-	height: 0;
 }
 
 .snug-fit-cell {
@@ -46,19 +54,13 @@ body {
 }
 
 .pull-right {
-	float: right;
-
-	&:after {
-		@extend .clearfix;
-	}
+	float: right;	
+	@extend .clearfix;	
 }
 
 .pull-left {
 	float: left;
-
-	&:after {
-		@extend .clearfix;
-	}
+	@extend .clearfix;	
 }
 
 .hidden {
@@ -74,6 +76,7 @@ body {
 @import 'tables';
 @import 'accordion';
 @import 'test';
+@import 'flexbox';
 @import 'views/footer';
 @import 'views/header';
 @import 'views/posts';
