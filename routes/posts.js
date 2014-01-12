@@ -40,6 +40,7 @@
 		delete req.body._id;
 		posts.updateById(db.ObjectID.createFromHexString(req.params.id), {$set: req.body}, {safe:true, multi:false}, function(err, success, result) {
 			if(err) throw err;
+			console.log(req.body);
 			res.json(result);
 		});
 	};

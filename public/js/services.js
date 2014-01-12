@@ -49,9 +49,11 @@
 			},
 			EditPost: function(form) {
 				return $http.put('/posts/post/' + form._id, form).
-					success(function(data) {					
+					success(function(data) {	
+						console.log(data);
 						for(var i = 0; i < _posts.length; i++) {
 							if(_posts[i]._id == form._id) {
+								console.log(form._id);
 								_posts[i] = form;
 							}
 						}
