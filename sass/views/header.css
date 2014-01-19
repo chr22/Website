@@ -1,0 +1,9 @@
+.header {
+  height: 50px;
+  background-color: black;
+  color: white;
+  vertical-align: middle; }
+  .header a {
+    margin-right: 15px; }
+    .header a.lastItem {
+      margin-right: 0; }

@@ -3,6 +3,7 @@ var passport = require('passport'),
 
 passport.use(new LocalStrategy(
 	function(username, password, done) {
+		console.log(password);
 		if (username === 'admin' && password === 'secret') {
 			return done(null, {username: 'admin'});
 		}

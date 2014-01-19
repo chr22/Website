@@ -1,0 +1,9 @@
+.footer {
+  height: 50px;
+  background-color: black;
+  color: white;
+  vertical-align: middle; }
+  .footer a {
+    margin-right: 15px; }
+    .footer a.lastItem {
+      margin-right: 0; }
