@@ -1,8 +1,7 @@
 (function() {
 	'use strict';
 	
-	exports.index = function (req, res){	
-		console.log("index");
+	exports.index = function (req, res){			
 		res.render('index');		
 	};
 	

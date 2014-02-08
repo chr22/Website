@@ -43,6 +43,7 @@ module.exports = function (db) {
 	}
 
 	// production only
+	// export NODE_ENV=production
 	if (app.get('env') === 'production') {
 		// Add www to url
 		app.get('*', function(req, res, next) {
