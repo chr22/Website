@@ -48,8 +48,9 @@
 		}).	
 		when('/about', {
 			templateUrl: 'partials/about'
-		});/*.
-		otherwise({
+		}).
+		when('/google402c9861da425f43.html', {});		
+		/*.otherwise({
 			redirectTo: '/'
 		});	*/	
 	}]);
