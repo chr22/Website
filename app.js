@@ -10,7 +10,18 @@ module.exports = function (db) {
 		path = require('path'),				
 		app = express();	
 	
-	// production only
+
+
+	// all environments
+	app.set('port', process.env.PORT || 3000);
+	app.set('views', __dirname + '/views');
+	app.set('view engine', 'jade');
+	app.use(express.static(path.join(__dirname, 'public')));
+	app.use(express.favicon(path.join(__dirname + "/public/images/favicon.png")));
+	app.use(express.logger('dev'));
+	app.use(express.cookieParser());
+	
+		// production only
 	if (app.get('env') === 'production') {
 		// Add www to url
 		app.get('*', function(req, res, next) {
@@ -23,15 +34,7 @@ module.exports = function (db) {
 			}
 		});
 	}
-
-	// all environments
-	app.set('port', process.env.PORT || 3000);
-	app.set('views', __dirname + '/views');
-	app.set('view engine', 'jade');
-	app.use(express.static(path.join(__dirname, 'public')));
-	app.use(express.favicon(path.join(__dirname + "/public/images/favicon.png")));
-	app.use(express.logger('dev'));
-	app.use(express.cookieParser());
+	
 	app.use(express.session({
 		secret: 'verySecret',
 		store: new MongoStore({
