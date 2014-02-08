@@ -19,24 +19,7 @@ module.exports = function (db) {
 	app.use(express.static(path.join(__dirname, 'public')));
 	app.use(express.favicon(path.join(__dirname + "/public/images/favicon.png")));
 	app.use(express.logger('dev'));
-	app.use(express.cookieParser());
-	
-		// production only
-	if (app.get('env') === 'production') {
-		// Add www to url
-		app.get('*', function(req, res, next) {
-			if (req.headers.host.slice(0, 3) != 'www') {
-				var newHeader = req.headers.host.slice(4)
-				console.log(newHeader);
-				res.redirect('http://www.' + req.headers.host + req.url, 301);	
-				console.log("after");				
-			} else {
-				console.log("www");
-				next();
-			}
-		});
-	}
-	
+	app.use(express.cookieParser());	
 	app.use(express.session({
 		secret: 'verySecret',
 		store: new MongoStore({
@@ -59,7 +42,17 @@ module.exports = function (db) {
 		app.use(express.errorHandler());
 	}
 
-	
+	// production only
+	if (app.get('env') === 'production') {
+		// Add www to url
+		app.get('*', function(req, res, next) {
+			if (req.headers.host.slice(0, 3) != 'www') {				
+				res.redirect('http://www.' + req.headers.host + req.url, 301);	
+			} else {				
+				next();
+			}
+		});
+	}	
 
 	// Routes
 
