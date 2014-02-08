@@ -26,7 +26,7 @@ module.exports = function (db) {
 		// Add www to url
 		app.get('*', function(req, res, next) {
 			if (req.headers.host.slice(0, 3) != 'www') {
-				var newHeader = req.headers.host.slice(4, 0)
+				var newHeader = req.headers.host.slice(4)
 				console.log(newHeader);
 				res.redirect('http://www.' + req.headers.host + req.url, 301);	
 				console.log("after");				
