@@ -49,10 +49,10 @@
 		when('/about', {
 			templateUrl: 'partials/about'
 		}).
-		when('/google402c9861da425f43.html', {});		
-		/*.otherwise({
+		when('/google402c9861da425f43.html', {})	
+		.otherwise({
 			redirectTo: '/'
-		});	*/	
+		});	
 	}]);
 	
 	//format: "#/theView?scrollTo=theId"
