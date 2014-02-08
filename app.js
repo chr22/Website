@@ -25,10 +25,11 @@ module.exports = function (db) {
 	if (app.get('env') === 'production') {
 		// Add www to url
 		app.get('*', function(req, res, next) {
-			if (req.headers.host.slice(0, 3) != 'www') {
-				console.log("!www");
-				res.redirect('http://www.' + req.headers.host + req.url, 301);
-				routes.index;
+			if (req.headers.host.slice(0, 3) == 'www') {
+				var newHeader = req.headers.host.slice(4, 0)
+				console.log(newHeader);
+				res.redirect('http://www.' + req.headers.host + req.url, 301);	
+				console.log("after");				
 			} else {
 				next();
 			}
