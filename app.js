@@ -9,7 +9,7 @@ module.exports = function (db) {
 		comments = require('./routes/comments'),		
 		path = require('path'),				
 		app = express();	
-	
+
 	// all environments
 	app.set('port', process.env.PORT || 3000);
 	app.set('views', __dirname + '/views');
@@ -34,28 +34,35 @@ module.exports = function (db) {
 	});	
 	app.use(app.router);
 	app.use(express.static(path.join(__dirname, 'public')));		
-	
+
 	// development only
 	if (app.get('env') === 'development') {
 		app.use(express.errorHandler());
 	}
-	
+
 	// production only
 	if (app.get('env') === 'production') {
-		// TODO
+		// Add www to url
+		app.get('*', function(req, res, next) {
+			if (req.headers.host.slice(0, 3) != 'www') {
+				res.redirect('http://www.' + req.headers.host + req.url, 301);
+			} else {
+				next();
+			}
+		});
 	}
-	
+
 	// Routes
-	
+
 	// Serve index and view partials
 	app.get('/', routes.index);
-	
+
 	app.get('/partials/:name', routes.partials);
 	app.get('/partials/posts/:name', routes.posts);
 	app.get('/partials/schedules/:name', routes.schedules);
 	app.get('/partials/reports/:name', routes.reports);
 	app.get('/partials/comments/:name', routes.comments);
-	
+
 	//login
 	app.get('/login', routes.login);
 	/*app.post('/login', passport.authenticate('local', {
@@ -67,16 +74,16 @@ module.exports = function (db) {
 		res.json("true");
 	});
 	app.get('/user', routes.user);
-	
+
 	// JSON API
-	
+
 	// Posts
 	app.get('/posts/posts', posts.posts);	
 	app.get('/posts/post/:id', posts.post);
 	app.post('/posts/post', posts.addPost);
 	app.put('/posts/post/:id', posts.editPost);
 	app.delete('/posts/post/:id', posts.deletePost);
-	
+
 	// Reports
 	app.get('/reports/reports', reports.reports);
 	app.get('/reports/reportsWithComments', reports.reportsWithComments);
@@ -86,8 +93,8 @@ module.exports = function (db) {
 	app.put('/reports/editReport', reports.editReport);
 	app.delete('/reports/deleteReport/:id', reports.deleteReport);
 	app.delete('/reports/deleteReports', reports.deleteReports);
-	
+
 	app.get('*', routes.index);	
-	
+
 	return app;
 };
