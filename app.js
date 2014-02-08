@@ -31,6 +31,7 @@ module.exports = function (db) {
 				res.redirect('http://www.' + req.headers.host + req.url, 301);	
 				console.log("after");				
 			} else {
+				console.log("www");
 				next();
 			}
 		});
