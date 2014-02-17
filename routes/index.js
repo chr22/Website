@@ -31,6 +31,11 @@
 		res.render('partials/comments/' + name);
 	};
 	
+	exports.stopwatch = function (req, res) {	
+		var name = req.params.name;
+		res.render('partials/stopwatch/' + name);
+	};
+	
 	exports.login = function (req, res) {	
 		console.log("in login");
 		res.render('partials/login');

@@ -45,10 +45,9 @@ module.exports = function (db) {
 	// production only
 	// export NODE_ENV=production
 	if (app.get('env') === 'production') {
-		// Add www to url
-		console.log("production");
+		// Add www to url		
 		app.get('*', function(req, res, next) {
-			if (req.headers.host.slice(0, 3) != 'www') {				
+			if (req.headers.host.slice(0, 3) !== 'www') {				
 				res.redirect('http://www.' + req.headers.host + req.url, 301);	
 			} else {				
 				next();
@@ -66,6 +65,7 @@ module.exports = function (db) {
 	app.get('/partials/schedules/:name', routes.schedules);
 	app.get('/partials/reports/:name', routes.reports);
 	app.get('/partials/comments/:name', routes.comments);
+	app.get('/partials/stopwatch/:name', routes.stopwatch);
 
 	//login
 	app.get('/login', routes.login);
