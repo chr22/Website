@@ -9,6 +9,9 @@
 	a(ng-click="DecreaseClock()") Smaller
 	a(ng-click="DefaultClockSize()") Default
 	
-	p.clock(style="font-size: {{clockSize}}px;") {{hours}}:{{minutes}}:{{seconds}}	
+	p.clock(style="font-size: {{clockSize}}px;") {{hours}}:{{minutes}}:{{seconds}}
+	//p.clock {{service}} seconds
 	
 	p.lap(ng-repeat="lap in laps track by $index") {{lap}}
+	
+	//button(ng-click="print()") print

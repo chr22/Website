@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	myApp.controller('StopwatchCtrl', ["$scope", "StopwatchService", function StopwatchCtrl($scope, StopwatchService) {
+	myApp.controller('StopwatchCtrl', ["$scope", "StopwatchService1", function StopwatchCtrl($scope, StopwatchService1) {
 				
 		$scope.seconds = '00';
 		$scope.minutes = '00';
@@ -10,23 +10,34 @@
 		$scope.timeOut = 1000;
 		$scope.intervalId = 0;
 		$scope.clockSize = 50;
+		/*$scope.service = StopwatchService1.GetTime();
 		
-		/*$scope.Start = function() {
-			StopwatchService.Start($scope.seconds);
-			$scope.seconds = StopwatchService.GetSeconds();
+		$scope.Start = function($scope) {
+			StopwatchService1.Start();
+			//$scope.service = StopwatchService1.GetTime();			
 		};
 		
 		$scope.Pause = function() {
-			StopwatchService.Pause();
+			StopwatchService1.Pause();
 		};
 		
 		$scope.Stop = function() {
-			StopwatchService.Stop();
+			StopwatchService1.Stop();
 		};
 		
 		$scope.print = function(){
-			console.log($scope.seconds);	
-		};*/
+			console.log(StopwatchService1.GetTime());
+		};
+				
+		$scope.$watch(
+			function(){
+				return StopwatchService1.GetTime();				
+			},
+			
+			function(newVal) {
+				$scope.service = newVal;				
+			}		
+		);*/
 				
 		$scope.Start = function() {
 			if($scope.intervalId === 0) {
@@ -40,10 +51,12 @@
 		
 		$scope.Pause = function() {
 			clearInterval($scope.intervalId);
+			$scope.intervalId = 0;
 		};
 		
 		$scope.Stop = function() {
 			clearInterval($scope.intervalId);
+			$scope.intervalId = 0;
 			
 			$scope.seconds = '00';
 			$scope.minutes = '00';

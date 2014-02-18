@@ -1,14 +1,13 @@
 (function() {
 	'use strict';
 	
-	myApp.factory('StopwatchService', [function() {
-		var _seconds = 10;
+	myApp.factory('StopwatchService', [function() {	
 		
 		var seconds = '00';
 		var minutes = '00';
 		var hours = '00';		
 		var intervalId = 0;		
-		
+				
 		var FormatTime = function() {
 			if(seconds < 10 && seconds != '00') {
 				seconds = '0' + seconds;
@@ -34,8 +33,7 @@
 		};
 		
 		return {
-			Start: function(sec) {
-				seconds = sec;
+			Start: function() {				
 				if(intervalId === 0) {
 					intervalId = setInterval(function(){
 						seconds++;
@@ -58,10 +56,10 @@
 				minutes = '00';
 				hours = '00';	
 			}, 
-			GetSeconds: function() {
-				return seconds;
-			}
 			
+			GetTime: function() {
+				return hours + ":" + minutes + ":" + seconds;
+			}			
 		};
 	}]);
 	
