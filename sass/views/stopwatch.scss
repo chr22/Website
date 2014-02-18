@@ -1,0 +1,29 @@
+.stopwatch {
+	a {
+		margin-right: 10px;		
+		font-size: 20px;
+		-webkit-user-select: none;
+		user-select: none;
+	}
+	
+	.title {
+		font-size: 60px;
+		margin-bottom: 20px;		
+	}
+	
+	button {
+		font-size: 20px;
+		margin-bottom: 20px;		
+		margin-right: 10px;
+	}
+	
+	.clock {
+		margin: 0;		
+	}
+	
+	p {
+		&.lap {
+			margin: 0;			
+		}
+	}
+}
