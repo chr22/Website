@@ -84,6 +84,10 @@
 		
 		$scope.DecreaseClock = function() {
 			$scope.clockSize -= 15;
+			
+			if($scope.clockSize <= 0) {
+				$scope.clockSize = 10;
+			}
 		};
 		
 		$scope.DefaultClockSize = function() {
