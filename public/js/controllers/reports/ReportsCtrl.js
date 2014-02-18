@@ -6,6 +6,7 @@
 		$scope.AccordId = "";
 		$scope.accordCheck = false;
 		$scope.accordType = "vertical"
+		$scope.loaded = false;
 		
 		$scope.GetReports = function() {
 			if(ReportService.GetReportCount() <= 0) {
@@ -18,6 +19,8 @@
 				$scope.reports = ReportService.GetReportsFromClient();
 				console.log($scope.reports);
 			}
+			
+			$scope.loaded = true;
 		}();
 		
 		$scope.DeleteReports = function() {			

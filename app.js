@@ -16,7 +16,7 @@ module.exports = function (db) {
 	app.set('port', process.env.PORT || 3000);
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'jade');
-	app.use(express.static(path.join(__dirname, 'public')));
+	app.use(express.static(path.join(__dirname, 'public')));	
 	app.use(express.favicon(path.join(__dirname + "/public/images/favicon.png")));
 	app.use(express.logger('dev'));
 	app.use(express.cookieParser());	
