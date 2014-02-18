@@ -1655,3 +1655,20 @@ tbody tr:hover {
   display: inline-block; }
 .reports .margLeft {
   margin-left: 20px; }
+
+.stopwatch a {
+  margin-right: 10px;
+  font-size: 20px;
+  -webkit-user-select: none;
+  user-select: none; }
+.stopwatch .title {
+  font-size: 60px;
+  margin-bottom: 20px; }
+.stopwatch button {
+  font-size: 20px;
+  margin-bottom: 20px;
+  margin-right: 10px; }
+.stopwatch .clock {
+  margin: 0; }
+.stopwatch p.lap {
+  margin: 0; }

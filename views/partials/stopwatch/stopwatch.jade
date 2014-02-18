@@ -1,0 +1,14 @@
+.stopwatch(ng-controller="StopwatchCtrl")
+	.title Stopwatch
+	button(ng-click="Start()") Start
+	button(ng-click="Pause()") Pause
+	button(ng-click="Stop()") Stop
+	button(ng-click="NewLap()") New Lap
+	br
+	a(ng-click="IncreaseClock()") Bigger
+	a(ng-click="DecreaseClock()") Smaller
+	a(ng-click="DefaultClockSize()") Default
+	
+	p.clock(style="font-size: {{clockSize}}px;") {{hours}}:{{minutes}}:{{seconds}}	
+	
+	p.lap(ng-repeat="lap in laps track by $index") {{lap}}
