@@ -40,8 +40,7 @@
 					intervalId = $interval(function(){
 						seconds++;
 						FormatTime();
-						$rootScope.stopWatchTime = hours + ":" + minutes + ":" + seconds; 
-						console.log(seconds);						
+						$rootScope.stopWatchTime = hours + ":" + minutes + ":" + seconds;											
 					},1000);	
 				}											
 			},

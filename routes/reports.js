@@ -5,8 +5,7 @@
 		Report = require('../db/schemas/reports'),
 		Comment = require('../db/schemas/comments');
 	
-	exports.reports = function (req, res) {
-		console.log("in reports");
+	exports.reports = function (req, res) {		
 		Report.find(function (err, result) {
 			if (err) throw err;
 			res.json({
@@ -46,10 +45,7 @@
 			});
 	};
 	
-	exports.addReport = function (req, res) {
-		console.log("in addreport");
-		console.log(req.body.Subject);
-	
+	exports.addReport = function (req, res) {	
 		var report = new Report({		
 			Subject: req.body.Subject,
 			Title: req.body.Title,

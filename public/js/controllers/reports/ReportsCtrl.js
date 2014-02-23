@@ -11,13 +11,11 @@
 		$scope.GetReports = function() {
 			if(ReportService.GetReportCount() <= 0) {
 				ReportService.GetReportsFromServer().success(function(data) {
-					$scope.reports = data.reports;		
-					console.log(data.reports);					
+					$scope.reports = data.reports;								
 				});
 			}
 			else {
 				$scope.reports = ReportService.GetReportsFromClient();
-				console.log($scope.reports);				
 			}
 			
 			$scope.loaded = true;
@@ -48,8 +46,7 @@
 				$scope.accordType = "vertical";
 			} else {
 				$scope.accordType = "horizontal";
-			}
-			console.log($scope.accordType);
+			}			
 		};
 		
 		$scope.Accordion = function($event) {

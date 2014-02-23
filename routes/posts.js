@@ -7,8 +7,7 @@
 	var posts = db.collection('posts');
 	
 	// GET all
-	exports.posts = function (req, res) {
-		console.log("in posts");
+	exports.posts = function (req, res) {		
 		posts.find().toArray(function(err, result) {
 			if(err) throw err;		
 			res.json({
@@ -39,8 +38,7 @@
 	exports.editPost = function (req, res) {	
 		delete req.body._id;
 		posts.updateById(db.ObjectID.createFromHexString(req.params.id), {$set: req.body}, {safe:true, multi:false}, function(err, success, result) {
-			if(err) throw err;
-			console.log(req.body);
+			if(err) throw err;			
 			res.json(result);
 		});
 	};

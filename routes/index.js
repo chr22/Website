@@ -6,8 +6,7 @@
 	};
 	
 	exports.partials = function (req, res) {		
-		var name = req.params.name;	
-		console.log("name: " + name);
+		var name = req.params.name;			
 		res.render('partials/' + name);
 	};
 	
@@ -36,13 +35,11 @@
 		res.render('partials/stopwatch/' + name);
 	};
 	
-	exports.login = function (req, res) {	
-		console.log("in login");
+	exports.login = function (req, res) {			
 		res.render('partials/login');
 	};
 	
-	exports.user = function (req, res) {
-		console.log("user");
+	exports.user = function (req, res) {		
 		if (req.session.passport.user === undefined) {
 			res.redirect('/login');
 			//res.render('/partials/login');
