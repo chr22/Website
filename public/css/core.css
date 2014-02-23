@@ -1607,6 +1607,12 @@ tbody tr:hover {
   flex-flow: row wrap;
   align-items: center; }
 
+.flex-index {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between; }
+
 .first {
   margin-left: 20px; }
 

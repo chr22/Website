@@ -5,6 +5,7 @@
 		$scope.form = {};
 		$scope.posts = [];
 		$scope.post = {};
+		$scope.loaded = false;
 	
 		$scope.GetPosts = function() {
 			if(PostService.GetPostCount() <= 0) {
@@ -15,6 +16,7 @@
 			else {
 				$scope.posts = PostService.GetPostsFromClient();
 			}
+			$scope.loaded = true;
 		}();
 	
 		$scope.ReadPost = function(id) {

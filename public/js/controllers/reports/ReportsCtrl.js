@@ -5,19 +5,19 @@
 		$scope.reports = [];		
 		$scope.AccordId = "";
 		$scope.accordCheck = false;
-		$scope.accordType = "vertical"
+		$scope.accordType = "vertical";
 		$scope.loaded = false;
 		
 		$scope.GetReports = function() {
 			if(ReportService.GetReportCount() <= 0) {
 				ReportService.GetReportsFromServer().success(function(data) {
 					$scope.reports = data.reports;		
-					console.log(data.reports);
+					console.log(data.reports);					
 				});
 			}
 			else {
 				$scope.reports = ReportService.GetReportsFromClient();
-				console.log($scope.reports);
+				console.log($scope.reports);				
 			}
 			
 			$scope.loaded = true;

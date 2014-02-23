@@ -52,8 +52,8 @@
 		when('/stopwatch', {
 			templateUrl: 'partials/stopwatch/stopwatch'
 		}).
-		when('/google402c9861da425f43.html', {})	
-		.otherwise({
+		when('/google402c9861da425f43.html', {}).		
+		otherwise({
 			redirectTo: '/'
 		});	
 	}]);
