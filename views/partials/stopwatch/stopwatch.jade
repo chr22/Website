@@ -5,13 +5,16 @@
 	button(ng-click="Stop()") Stop
 	button(ng-click="NewLap()") New Lap
 	br
-	a(ng-click="IncreaseClock()") Bigger
-	a(ng-click="DecreaseClock()") Smaller
+	a(ng-click="IncreaseClockSize()") Bigger
+	a(ng-click="DecreaseClockSize()") Smaller
 	a(ng-click="DefaultClockSize()") Default
 	
-	p.clock(style="font-size: {{clockSize}}px;") {{hours}}:{{minutes}}:{{seconds}}
+	//p.clock(style="font-size: {{clockSize}}px;") {{hours}}:{{minutes}}:{{seconds}}
+	//p.clock(style="font-size: {{clockSize}}px;") {{time}}
+	p.clock(style="font-size: {{clockSize}}px;") {{stopWatchTime}}
 	//p.clock {{service}} seconds
 	
-	p.lap(ng-repeat="lap in laps track by $index") {{lap}}
+	p.lap(ng-repeat="stopWatchLap in stopWatchLaps track by $index") {{stopWatchLap}}
 	
-	//button(ng-click="print()") print
+//	button(ng-click="print()") print
+//	p {{test}}

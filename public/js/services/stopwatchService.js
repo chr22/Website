@@ -1,12 +1,14 @@
 (function() {
 	'use strict';
 	
-	myApp.factory('StopwatchService', [function() {	
+	myApp.factory('StopwatchService', ["$interval", "$rootScope", function($interval, $rootScope) {	
 		
 		var seconds = '00';
 		var minutes = '00';
 		var hours = '00';		
 		var intervalId = 0;		
+		$rootScope.stopWatchTime = '00:00:00';
+		$rootScope.stopWatchLaps = [];
 				
 		var FormatTime = function() {
 			if(seconds < 10 && seconds != '00') {
@@ -35,31 +37,34 @@
 		return {
 			Start: function() {				
 				if(intervalId === 0) {
-					intervalId = setInterval(function(){
+					intervalId = $interval(function(){
 						seconds++;
 						FormatTime();
-						//console.log(seconds);						
+						$rootScope.stopWatchTime = hours + ":" + minutes + ":" + seconds; 
+						console.log(seconds);						
 					},1000);	
 				}											
 			},
 			
-			Pause: function() {
-				clearInterval(intervalId);
+			Pause: function() {				
+				$interval.cancel(intervalId);
 				intervalId = 0;
 			},
 
-			Stop: function() {
-				clearInterval(intervalId);
+			Stop: function() {				
+				$interval.cancel(intervalId);
 				intervalId = 0;
-
+				
+				$rootScope.stopWatchTime = '00:00:00';
+				$rootScope.stopWatchLaps = [];
 				seconds = '00';
 				minutes = '00';
 				hours = '00';	
-			}, 
+			},
 			
-			GetTime: function() {
-				return hours + ":" + minutes + ":" + seconds;
-			}			
+			NewLap: function() {
+				$rootScope.stopWatchLaps.push($rootScope.stopWatchTime);
+			}
 		};
 	}]);
 	
