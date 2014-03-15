@@ -1,4 +1,4 @@
 #!/bin/bash
 rm nohup.out
-nohup node server.js &
+export NODE_ENV=production && nohup node server.js &
 echo $! > website.pid
