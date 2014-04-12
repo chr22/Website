@@ -64,6 +64,7 @@ module.exports = function (db) {
 	app.get('/partials/reports/:name', routes.reports);
 	app.get('/partials/comments/:name', routes.comments);
 	app.get('/partials/stopwatch/:name', routes.stopwatch);
+	app.get('/partials/hundredBeers/:name', routes.hundredBeers);
 
 	//login
 	app.get('/login', routes.login);
@@ -95,6 +96,9 @@ module.exports = function (db) {
 	app.put('/reports/editReport', reports.editReport);
 	app.delete('/reports/deleteReport/:id', reports.deleteReport);
 	app.delete('/reports/deleteReports', reports.deleteReports);
+	
+	// 100 Beers
+	//app.get('/hundredBeers/hundredBeers', )
 
 	app.get('*', routes.index);	
 

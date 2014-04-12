@@ -35,6 +35,11 @@
 		res.render('partials/stopwatch/' + name);
 	};
 	
+	exports.hundredBeers = function (req, res) {	
+		var name = req.params.name;
+		res.render('partials/hundredBeers/' + name);
+	};
+	
 	exports.login = function (req, res) {			
 		res.render('partials/login');
 	};

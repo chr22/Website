@@ -1,2 +1,2 @@
 #!/bin/bash
-mongod --dbpath=C:/MongoDB/bin
+mongod --dbpath c:/data/db

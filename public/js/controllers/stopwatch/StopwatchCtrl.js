@@ -9,7 +9,7 @@
 		$scope.laps = [];
 		$scope.timeOut = 1000;
 		$scope.intervalId = 0;
-		$scope.clockSize = 50;		
+		$scope.clockSize = 60;		
 		
 		$scope.Start = function($scope) {
 			StopwatchService.Start();	

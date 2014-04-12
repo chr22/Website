@@ -1,0 +1,26 @@
+.hundredBeers(ng-controller="HundredBeersCtrl")
+	h1 100 beers challenge!
+	h2 Beers left: {{beersLeft}}	
+	.flex-beers
+		.persons(ng-repeat="person in persons")
+			h2 {{person.name}}
+			input(type="checkbox", ng-show="deleteMode")
+			p Beers consumed: {{person.beers}}
+			button(ng-click="AddBeer(person)") +1 beer	
+			a(ng-click="SubtractBeer(person)") -1 beer	
+		.persons(ng-if="newPersons")
+			h2 Ny person
+			label(for="name") Navn:
+			input.margBut(type="text", name="name", id="name", ng-model="newPersons.name")	
+			br
+			label(for="beers") Beers:
+			input.margBut(type="number", name="beers", id="beers", ng-model="newPersons.beers")	
+			br
+			button(ng-click="FinalizePerson()") Finalize	
+			button(ng-click="CancelNewPerson()") Cancel	
+	.edit
+		button(ng-click="AddPerson()") Add person
+		button(ng-click="deleteMode = !deleteMode") Delete mode
+		button(ng-click="Delete()") Delete persons
+		button(ng-click="Reset()") Reset beer counter
+			

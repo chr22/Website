@@ -1469,6 +1469,16 @@ button {
   background-color: #859ce6; }
   button:hover {
     background-color: #3057d5; }
+  button:active {
+    background-color: #2445ae; }
+
+button, a {
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none; }
 
 a.littleMargTop {
   margin-top: 10px;
@@ -1624,6 +1634,11 @@ tbody tr:hover {
   margin-left: auto;
   margin-right: 20px; }
 
+.flex-beers {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start; }
+
 .footer {
   height: 50px;
   background-color: black;
@@ -1682,3 +1697,19 @@ tbody tr:hover {
   margin: 0; }
 .stopwatch p.lap {
   margin: 0; }
+
+.hundredBeers .persons {
+  margin-right: 30px; }
+.hundredBeers input.margBut {
+  margin-bottom: 10px; }
+.hundredBeers .edit {
+  margin-top: 50px; }
+.hundredBeers button {
+  margin-right: 10px; }
+.hundredBeers a {
+  font-size: 12px; }
+
+.about .linkedin {
+  position: relative;
+  top: 4px;
+  margin-left: 10px; }
