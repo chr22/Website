@@ -21,6 +21,6 @@
 	.edit
 		button(ng-click="AddPerson()") Add person
 		button(ng-click="deleteMode = !deleteMode") Delete mode
-		button(ng-click="Delete()") Delete persons
+		button(ng-click="Delete()", ng-show="deleteMode") Delete persons
 		button(ng-click="Reset()") Reset beer counter
 			
