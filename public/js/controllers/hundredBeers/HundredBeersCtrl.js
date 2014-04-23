@@ -10,7 +10,7 @@
 		$scope.newPerson = undefined;
 		
 		$scope.AddPerson = function () {						
-			$scope.newPerson = {};						
+			$scope.newPerson = { "Beers": 0 };						
 		};
 
 		$scope.FinalizePerson = function () {						

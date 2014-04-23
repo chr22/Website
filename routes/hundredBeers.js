@@ -29,7 +29,12 @@
 	exports.addBeer = function(req, res) {
 		var id = req.body._id;
 		delete req.body._id;
-		req.body.Beers++;
+		if(typeof req.body.Beers === 'number') {
+			req.body.Beers++;	
+		} else {
+			req.body.Beers = 0;
+		}
+		
 		
 		Beer.findOneAndUpdate({_id: id}, req.body, function(err, result) {
 			if (err) throw err;
@@ -42,7 +47,11 @@
 	exports.subtractBeer = function(req, res) {
 		var id = req.body._id;
 		delete req.body._id;
-		req.body.Beers--;
+		if(typeof req.body.Beers === 'number') {
+			req.body.Beers--;	
+		} else {
+			req.body.Beers = 0;
+		}
 		
 		Beer.findOneAndUpdate({_id: id}, req.body, function(err, result) {
 			if (err) throw err;
