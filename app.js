@@ -7,6 +7,7 @@ module.exports = function (db) {
 		schedules = require('./routes/schedules'),
 		reports = require('./routes/reports'),
 		comments = require('./routes/comments'),		
+		hundredBeers = require('./routes/hundredBeers'),		
 		path = require('path'),				
 		app = express();	
 
@@ -98,7 +99,11 @@ module.exports = function (db) {
 	app.delete('/reports/deleteReports', reports.deleteReports);
 	
 	// 100 Beers
-	//app.get('/hundredBeers/hundredBeers', )
+	app.get('/hundredBeers/status', hundredBeers.status);
+	app.post('/hundredBeers/addPerson', hundredBeers.addPerson);
+	app.post('/hundredBeers/addBeer', hundredBeers.addBeer);
+	app.post('/hundredBeers/subtractBeer', hundredBeers.subtractBeer);
+	app.delete('/hundredBeers/deletePerson/:id', hundredBeers.deletePerson);
 
 	app.get('*', routes.index);	
 

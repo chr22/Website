@@ -1,50 +1,50 @@
 (function () {
 	'use strict';
 
-	myApp.controller('HundredBeersCtrl', ["$scope", "$location", "$routeParams", function HundredBeersCtrl($scope, $location, $routeParams) {
+	myApp.controller('HundredBeersCtrl', ["$scope", "$routeParams", "$http", function HundredBeersCtrl($scope, $routeParams, $http) {
 
-		$scope.persons = [
-			{
-				"name": "Hans",
-				"beers": 10
-			},
-			{
-				"name": "Grete",
-				"beers": 5
-			}
-		];
+		$scope.persons = [];
 
-		$scope.deleteMode = false;
+		$scope.deleteMode = false;		
 		$scope.beersLeft = 100;
-
-		var CreatenewPerson = function() {
-			return {
-				"name": "",
-				"beers": 0
-			};
-		};
-
-		$scope.newPersons = undefined;
+		$scope.newPerson = undefined;
 		
-		$scope.AddPerson = function () {
-			$scope.newPersons = (new CreatenewPerson());
+		$scope.AddPerson = function () {						
+			$scope.newPerson = {};						
 		};
 
-		$scope.FinalizePerson = function () {			
-			$scope.persons.push($scope.newPersons);
-			$scope.newPersons = undefined;
+		$scope.FinalizePerson = function () {						
+			$http.post("hundredBeers/addPerson", $scope.newPerson).success(function(result) {				
+				$scope.persons.push(result);
+				$scope.newPerson = undefined;
+				$scope.deleteMode = false;				
+			});			
 		};
 
 		$scope.CancelNewPerson = function () {						
 			$scope.newPersons = undefined;
 		};		
 
-		$scope.AddBeer = function (person) {
-			person.beers += 1;
+		$scope.AddBeer = function (person) {						
+			$http.post("hundredBeers/addBeer", person).success(function(result)	{
+				$scope.persons.forEach(function(element) {				
+					if(element._id == result.person._id) {
+						element.Beers = result.person.Beers;	
+						return false;
+					}
+				});
+			});
 		};
 		
-		$scope.SubtractBeer = function (person) {
-			person.beers -= 1;
+		$scope.SubtractBeer = function (person) {			
+			$http.post("hundredBeers/subtractBeer", person).success(function(result) {				
+				$scope.persons.forEach(function(element) {
+					if(element._id == result.person._id) {
+						element.Beers = result.person.Beers;
+						return false;
+					}
+				});
+			});
 		};
 
 		$scope.Reset = function () {
@@ -57,25 +57,35 @@
 			}			
 		};
 
-		$scope.Delete = function () {
-			if(confirm("Are you sure you want to delete the checked persons?")) {
-				$scope.persons.forEach(function(element, index) {
-					if(element.name == person.name) {
-						element = {}
+		$scope.Delete = function (person) {
+			if(confirm("Are you sure you want to delete the checked persons?")) {	
+				$http.delete("hundredBeers/deletePerson/" + person._id).success(function() {					
+					for(var i = $scope.persons.length-1; i >= 0; i--) {
+						if($scope.persons[i]._id == person._id) {				
+							$scope.persons.splice(i, 1);
+							break;
+						}
 					}
 				});
-			}			
-		};
+			}
+		};			
+		
 
 		$scope.$watch('persons', function() {
 			var total = 0;
 
 			$scope.persons.forEach(function(element) {
-				total += element.beers;	
+				total += element.Beers;	
 			});
 
 			$scope.beersLeft = 100 - total;
 		}, true);
+		
+		$scope.status = function() {
+			$http.get('hundredBeers/status').success(function(data, status, headers, config) {				
+				$scope.persons = data.status;
+			});
+		}();
 
 	}]);
 }());

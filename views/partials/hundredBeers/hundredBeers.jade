@@ -3,24 +3,26 @@
 	h2 Beers left: {{beersLeft}}	
 	.flex-beers
 		.persons(ng-repeat="person in persons")
-			h2 {{person.name}}
-			input(type="checkbox", ng-show="deleteMode")
-			p Beers consumed: {{person.beers}}
+			h2 {{person.Name}}
+			//input(type="radio", name="delete", ng-show="deleteMode", ng-model="deleteRadio", value="person._id")
+			p Beers consumed: {{person.Beers}}
 			button(ng-click="AddBeer(person)") +1 beer	
-			a(ng-click="SubtractBeer(person)") -1 beer	
-		.persons(ng-if="newPersons")
+			a(ng-click="SubtractBeer(person)") -1 beer
+			br
+			button(ng-click="Delete(person)", ng-show="deleteMode") Delete {{person.Name}}
+		.persons(ng-if="newPerson")
 			h2 Ny person
 			label(for="name") Navn:
-			input.margBut(type="text", name="name", id="name", ng-model="newPersons.name")	
+			input.margBut(type="text", name="name", id="name", ng-model="newPerson.Name")	
 			br
 			label(for="beers") Beers:
-			input.margBut(type="number", name="beers", id="beers", ng-model="newPersons.beers")	
+			input.margBut(type="number", name="beers", id="beers", ng-model="newPerson.Beers")	
 			br
 			button(ng-click="FinalizePerson()") Finalize	
 			button(ng-click="CancelNewPerson()") Cancel	
 	.edit
 		button(ng-click="AddPerson()") Add person
-		button(ng-click="deleteMode = !deleteMode") Delete mode
-		button(ng-click="Delete()", ng-show="deleteMode") Delete persons
-		button(ng-click="Reset()") Reset beer counter
+		button(ng-click="deleteMode = !deleteMode") Toggle delete mode
+		//button(ng-click="Delete()", ng-show="deleteMode") Delete persons
+		//button(ng-click="Reset()") Reset beer counter
 			
