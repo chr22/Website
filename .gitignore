@@ -157,3 +157,7 @@ $RECYCLE.BIN/
 
 # Node
 node_modules/**/*
+
+#Log files
+nohup.out
+website.pid
